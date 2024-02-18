@@ -1,0 +1,27 @@
+<div class="grid">
+    <mat-card class="row">
+        <h2>NgClass</h2>
+        <p [ngClass]="['text-font','text-color']">NgClass applied using an array</p>
+        <p [ngClass]="{'text-font':true, 'text-color':false, 'text-background':true}">NgClass applied using an object</p>
+        <p [ngClass]="addClass()">NgClass applied using a method</p>
+    </mat-card>
+    <mat-card class="row">
+        <h2>NgStyle</h2>
+        <div>
+            <input type="checkbox" [(ngModel)]="changeFontStyle" (ngModelChange)="setCurrentStyles()">Font style&nbsp;
+            <input type="checkbox" [(ngModel)]="changeFontWeight" (ngModelChange)="setCurrentStyles()">Font weight&nbsp;
+            <input type="checkbox" [(ngModel)]="changeFontSize" (ngModelChange)="setCurrentStyles()">Font size&nbsp;
+        </div><br>
+        <div [ngStyle]="currentStyles">
+            My name is Pavankumar Bashetty
+        </div>
+    </mat-card>
+    <mat-card class="row">
+        <h2>NgModel</h2>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="E.g. Goku" [(ngModel)]="twoWayVar">
+        </mat-form-field>
+        <p>{{twoWayVar}}</p>
+    </mat-card>
+</div>

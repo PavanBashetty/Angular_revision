@@ -1,0 +1,16 @@
+<div class="grid">
+    <div class="row">
+        <app-product-widget [products]="shoeProducts">
+            <h4>{{shoeTag}}</h4>
+            <a mat-raised-button [href]="shoeLink" target="_blank" product-link>See more</a>
+        </app-product-widget>
+    </div>
+    <div class="row">
+        <app-product-widget [products]="laptopProducts">
+            <h4>{{laptopTag}}</h4>
+            <a mat-raised-button [href]="laptopLink" target="_blank" product-link>See more!</a>
+        </app-product-widget>
+    </div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>

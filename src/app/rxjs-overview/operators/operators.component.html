@@ -1,0 +1,56 @@
+<br>
+<p>RxJS provides operators to transform, filter, combine, and manipulate these observable streams, allowing you to
+    perform complex asynchronous operations in a concise
+    and readable manner.
+</p>
+<div class="grid">
+    <mat-card class="row">
+        <h2>Original data</h2>
+        <div *ngFor="let orgData of originalStudentList; let i=index">
+            <li>{{orgData.firstName + '. Age: ' + orgData.age }}</li>
+        </div>
+    </mat-card>
+</div>
+<div class="grid">
+    <mat-card class="row">
+        <h2>map</h2>
+        <div *ngFor="let mapData of mapStudentList; let i=index">
+            <li>{{mapData.firstName + '. Age: ' + mapData.age}}</li>
+        </div>
+    </mat-card>
+    <mat-card class="row">
+        <h2>filter</h2>
+        <div *ngFor="let filterData of filterStudentList; let i=index">
+            <li>{{filterData.firstName + '. Age: ' + filterData.age}}</li>
+        </div>
+    </mat-card>
+</div>
+<div class="grid">
+    <mat-card class="row">
+        <h2 style="margin-bottom: 0px;">switchMap, debounceTime</h2>
+        <small><i>(allows to switch from one stream to another stream, it can also take values from first stream into the 2nd stream,
+            basically getting needed data from one stream and switch map to other stream that makes use of that data)</i></small>
+        <div class="grid">
+            <div class="row">
+                <small>Enter name to see their age</small>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="E.g. Goku" [formControl]="searchedName">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                Age: <br>
+                <div *ngFor="let result of searchResult$ | async; let i=index">
+                    <b>{{result.age}}</b>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+    <mat-card class="row">
+        <h2>distinctUntilChanged</h2>
+        <small>Original array:</small>
+        <p>{{numberArray}}</p>
+        <small>after applying the operator</small>
+        <p>{{distinctNumberArray}}</p>
+    </mat-card>
+</div>

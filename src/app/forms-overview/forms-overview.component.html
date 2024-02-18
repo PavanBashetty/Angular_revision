@@ -1,0 +1,66 @@
+<div class="grid">
+    <mat-card class="row">
+        <div class="grid">            
+            <div>
+                <h4>Favoriate Movies</h4>
+                <small><i>Below data is coming from JSON server</i></small>
+                <p class="success-p">{{successMsg}}</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Rating</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let favMovie of favMovieList; let i=index">
+                            <tr>
+                                <td>{{favMovie.movieName}}</td>
+                                <td>{{favMovie.movieRating}}</td>
+                                <td>
+                                    <button type="button" mat-icon-button color="primary" (click)="deleteFavMovie(favMovie.id)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>              
+            </div>
+        </div><br> 
+        <div class="grid">
+            <div>
+                <h4>Student Table</h4>
+                <small><i>Below data is coming from JSON server</i></small>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let student of completeStudentData; let i=index">
+                            <tr>
+                                <td>{{student.firstName + ' ' + student.lastName}}</td>
+                                <td>{{student.age}}</td>
+                                <td>
+                                    <button mat-raised-button type="button" (click)="studentDetail(student.id)">details</button>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>  
+                </table>
+            </div>
+        </div>
+    </mat-card>
+    <mat-card class="row">
+        <nav style="text-align: center;">
+            <a routerLink="/forms/template" routerLinkActive="active">Template driven form</a>&nbsp;
+            <a routerLink="/forms/reactive" routerLinkActive="active">Reactive form</a>
+        </nav><br><br>
+        <router-outlet></router-outlet>
+    </mat-card>
+</div>

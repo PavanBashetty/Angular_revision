@@ -1,0 +1,22 @@
+<br>
+<p>
+    The async pipe is a built-in feature that allows you to work with asynchronous data directly within your templates.
+    If possible to use async pipe instead of subscribe, go for it. Because, its faster, Angular only creates the subscription and destroy it when component is destroyed.
+    If you use subscribe instead, you'd manually need to write the destroy code. <br>
+    Prefer async Pipe: If you're simply displaying asynchronous data in your templates without needing to perform additional operations or side effects. <br>
+    Use subscribe() for Complex Logic: If you need to perform complex operations or side effects based on the emitted data, or if you need more control over the subscription process.
+</p>
+<div class="grid">
+    <mat-card class="row">
+        <b>Example1</b>
+        <div *ngFor="let user of users$ | async; let i=index">
+            <li>{{user.name}}</li>
+        </div>
+    </mat-card>
+    <mat-card class="row">
+        <b>Example2</b>
+        <div *ngFor="let student of studentData$ | async; let i=index">
+            <li>{{student.firstName}}</li>
+        </div>
+    </mat-card>
+</div>

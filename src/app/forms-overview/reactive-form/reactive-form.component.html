@@ -1,0 +1,74 @@
+<div>
+    <h3>Add a new student</h3>
+    <p class="success-p">{{successMsg}}</p>
+    <form [formGroup]="studentForm" (submit)="submitNewStudent()">
+        <div class="grid">
+            <div class="row">
+               <label for="first-name">FirstName:</label>
+               <input class="form-input" style="width: 100%;" type="text" id="first-name" formControlName="firstName" required />
+            </div>
+            <div class="row">
+                <label for="last-name">LastName:</label>
+                <input class="form-input" style="width: 100%;" type="text" id="last-name" formControlName="lastName" required>
+            </div>
+            <div class="row">
+                <label for="age">Age:</label>
+                <input class="form-input" style="width: 100%;" type="number" id="age" formControlName="age" required>
+            </div>
+        </div>
+
+        <div formGroupName="address">
+            <h4>Address:</h4>
+            <div class="grid">
+                <div class="row">
+                    <label for="street">Street:</label>
+                    <input class="form-input" type="text" id="street" formControlName="street" />                                     
+                </div>
+                <div class="row">
+                    <label for="city">City:</label>
+                    <input class="form-input" type="text" id="city" formControlName="city">
+                </div>
+                <div class="row">
+                    <label for="zipcode">Zipcode:</label>
+                    <input class="form-input" type="number" id="zipcode" formControlName="zipcode">
+                </div>
+                <div class="row">
+                    <label for="country">Country:</label>
+                    <input class="form-input" type="text" id="country" formControlName="country">
+                </div>
+            </div>
+        </div>
+
+        <div formArrayName="aliases">
+            <h4>Aliases:</h4>
+            <div class="grid">
+                <div class="row">
+                    <div *ngIf="aliases.length == 0; else showElseBlock"><button mat-raised-button type="button" (click)="addAlias()">+ Add alias</button></div>
+                    <ng-template #showElseBlock><button type="button" mat-raised-button (click)="addAlias()">+Add another alias</button></ng-template>                    
+                </div>               
+            </div>
+            <div class="grid">
+                <div class="row">
+                    <div *ngFor="let alias of aliases.controls; let i=index">
+                        <div>
+                            <label for="alias-{{i}}"></label>&nbsp;
+                            <input class="form-input" type="text" id="alias-{{i}}" [formControlName]="i">&nbsp;
+                            <button mat-raised-button type="button" (click)="removeAlias(i)">Remove</button>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="grid">
+                <div class="row">
+                    <p [hidden]="studentForm.valid"><small><i>Complete the form to enable submit button</i></small></p>
+                    <p [hidden]="!studentForm.valid"></p>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!isFormValid">Submit</button>&nbsp;
+                    <button mat-raised-button color="accent" type="button" (click)="cancelSubmission()">Cancel</button>                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

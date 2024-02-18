@@ -1,0 +1,21 @@
+<div class="grid">
+    <mat-card>
+        <div class="row">
+            <p>Either component 'alert-success' or 'alert-danger' loads dynamically here in 'Extras' component using <b>ngComponentOutlet</b>.</p>
+            <button (click)="switchAlert()" mat-raised-button color="warn">Switch alert</button><br>
+            <ng-container *ngComponentOutlet="alert"></ng-container>            
+        </div>
+    </mat-card>
+</div><br>
+<div class="grid">
+    <mat-card>
+        <div class="row">
+            <p>Out of the multiple templates, any one gets rendered based on conditions using <b>ngTemplateOutlet</b>.</p>
+            <ng-container *ngTemplateOutlet="selectedTemplate"></ng-container>
+            <ng-template #templateOne><span style="color: blue;">1. This message is from Template One</span></ng-template>
+            <ng-template #templateTwo><span style="color: red;">2. This message is from Template Two</span></ng-template>
+            <ng-template #templateThree><span style="color: gray;">3. This message is from Template Three</span></ng-template>
+            <ng-template #templateFour><span style="color: violet;">4. This message is from Template Four</span></ng-template>
+        </div>        
+    </mat-card>
+</div>

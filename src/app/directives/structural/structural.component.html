@@ -1,0 +1,41 @@
+<p><i>Are directives that lets you add or remove HTML elements from the DOM. There are 3 common built in structural
+    directives: *ngIf, [ngSwitch], *ngFor</i></p>
+
+<div class="grid">
+    <mat-card class="row">
+        <h2>NgIf</h2>
+        <div class="row">
+            <button mat-raised-button color="accent" (click)="isVisible = !isVisible" >Toggle</button>
+        </div>
+        <p *ngIf="isVisible; else showElseBlock">Variable 'isVisible' is True</p>
+        <ng-template #showElseBlock>Variable 'isVisible' is False</ng-template>
+    </mat-card>
+    <mat-card class="row">
+        <h2>NgFor</h2>
+        <div *ngFor="let color of colors; let i=index">
+            <span [style.color]="color">{{color}}</span>
+        </div>
+    </mat-card>
+</div>
+
+<div class="grid">
+    <mat-card class="row">
+        <h2>NgSwitch</h2>
+        <p><i>Select your favoriate movie!</i></p>
+        <div *ngFor="let movie of movies; let i=index">
+            <p>
+                <label [for]="i"></label>
+                <input [id]="i" type="radio" [value]="movie.name" [(ngModel)]="selectedMovie">{{movie.name}}
+            </p>
+        </div>
+    </mat-card>
+    <div class="row">
+        <div [ngSwitch]="selectedMovie" style="text-align: center; margin-top: 70px;">
+            <div *ngSwitchCase="'Up'">Selected movie is {{selectedMovie}}</div>
+            <div *ngSwitchCase="'Saw'">Selected movie is {{selectedMovie}}</div>
+            <div *ngSwitchCase="'The Marvels'">Selected movie is {{selectedMovie}}</div>
+            <div *ngSwitchCase="'Animal'">Selected movie is {{selectedMovie}}</div>
+            <div *ngSwitchCase="'Swades'">Selected movie is {{selectedMovie}}</div>
+        </div>
+    </div>
+</div>

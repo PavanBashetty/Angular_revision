@@ -1,0 +1,85 @@
+<br>
+<p>Observables and Promises are the way with which we can perform async operations in Angular. Promise is native to JS. Observable is part of RxJS library.</p>
+<div class="grid">
+    <mat-card class="row" title="Observables">
+        <b>Observables example</b>
+        <table>
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let student of studentListObservable; let i=index">
+                    <tr>
+                        <td>{{student.firstName}}</td>
+                        <td>{{student.lastName}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.address.country}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </mat-card>
+    <mat-card class="row" title="Promises">
+        <b>Promise example</b>
+        <table>
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let student of studentListPromise; let i=index">
+                    <tr>
+                        <td>{{student.firstName}}</td>
+                        <td>{{student.lastName}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.address.country}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </mat-card>
+</div>
+<div class="grid">
+    <mat-card class="row">
+        <h3>More info on Promise vs Observable</h3>
+        <div class="grid">
+            <div class="row">
+                How to create an promise object?<br>
+                <img src="assets/images/promise.png" alt="Promise object" class="shrink-image">
+            </div>
+            <div class="row">
+                How to create an observable object?<br>
+                <img src="assets/images/observable.png" alt="Observable object" class="shrink-image">
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <b>1.</b> Promise call as soon as we initiate it. Meaning, the object will execute right after defining it, even if we are not listening to it. Its called eager loading. <br>
+                <b>2.</b> Promise returns only single value. This a drawback 'cus we may need to return mutliple values in real world. <br>
+                <b>3.</b> Can't do this here! <br>
+                <b>4.</b> Preventing data leaks: We cannot prevent it, once promise is created, it will be there always.
+            </div>
+            <div class="row">
+               <b>1.</b> Observables are lazy, if nobody is listening to it, it will not make a call/execute. They need subscriber to get called. <br>
+               <b>2.</b> Observable can return multiple values. <br>
+               <b>3.</b> Observables acts an array and we can apply bunch of array methods to manipulate data as per the need. <br>
+               <b>4.</b> Since observable don't work without subscriber, after execution we can unsubscribe to prevent data leak. <br> More info is below.
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row"></div>
+            <div class="row">
+                <img src="assets/images/unsubscribe.png" alt="unsubscribe" class="shrink-image">
+            </div>
+        </div>
+    </mat-card>
+</div>

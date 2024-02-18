@@ -1,0 +1,50 @@
+<div class="grid">
+    <mat-card class="row" title="ngComponentOutlet">
+        <mat-card>
+            <app-dynamic-ad></app-dynamic-ad>
+        </mat-card>
+    </mat-card>
+</div>
+<div class="grid">
+    <mat-card class="row" title="@Input(), @Output()">
+            <div>
+                <h2 style="color: red;">Parent comp</h2>
+                <p>{{dataFromChild}}</p>
+            </div>
+            -----------------------------------
+            <div>
+                <app-child-one [dataFromParent]="dataToChild" (childEvent)="dataFromChild=$event"></app-child-one>
+            </div>
+    </mat-card>
+    <mat-card class="row" title="Binding">
+        <div class="grid">
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="E.g. Goku" [disabled]="disableInput" [(ngModel)]="enteredName">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <button (click)="disableInput = false" mat-raised-button>Enable input</button>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <p [style.color]="disableInput ? 'red':'green'">Welcome {{enteredName}}</p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <button mat-raised-button color="accent">Autharize Pipes</button>
+            </div>
+        </div>
+    </mat-card>
+</div>
+<div class="grid" title="Pipes, Custom pipes">
+    <mat-card class="row">
+        <nav>
+            <a routerLink="/basics/pipes" routerLinkActive="active">Pipes</a><br>            
+        </nav>
+        <router-outlet></router-outlet>
+    </mat-card>
+</div>

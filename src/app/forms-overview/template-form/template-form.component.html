@@ -1,0 +1,9 @@
+<div class="form-container">
+    <h4>Add your favoriate movie</h4>
+    <p class="success-p"><i>{{successMsg}}</i></p>
+    <form class="common-form" #movieForm="ngForm" (submit)="submitNewMovie(movieForm.value)">
+        <input type="text" class="form-input" placeholder="Enter movie..." name="movieName" ngModel>
+        <input type="number" class="form-input" placeholder="Enter rating..." name="movieRating" ngModel>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+</div>

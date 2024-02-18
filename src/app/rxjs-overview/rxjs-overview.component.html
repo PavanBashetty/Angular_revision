@@ -1,0 +1,16 @@
+<div>
+    <p [hidden]="hideOverviewMsg">
+        <b>RxJS</b> (<i><small>Reactive extensions for JavaScript</small></i>) is a library for composing asynvhronous and event-based programs by using observable sequences. <br>
+        It provides one core type: Observable, satellite types: Observer/Schedulers/Subjects, Operators: [map, filter, reduce, every, etc..] (<small><i>inspired by Array methods</i></small>) <br>
+        RxJS library enables developers to work with asynchronous data streams easily. The core concept of RxJS revolves around observables, which are representations of any set of values over any amount of time.
+        These values can be events, user inputs, HTTP responses, or any other asynchronous data source. Observable then emit this data, which is consumed by subscribe() method in required components, and then we can RxJS operators for manipulation.
+    </p>
+    <nav style="text-align: center;">
+        <a routerLink="/rxjs/observablePromises" routerLinkActive="active">Observables & Promises</a>&nbsp;
+        <a routerLink="/rxjs/asyncpipe" routerLinkActive="active">Async pipe</a>&nbsp;
+        <a routerLink="/rxjs/operators" routerLinkActive="active">Operators</a>&nbsp;
+        <a routerLink="/rxjs/subjects" routerLinkActive="active">Subject</a>&nbsp;
+        <!-- <a routerLink="/rxjs/" routerLinkActive="active">Schedulers?</a> -->
+    </nav>
+    <router-outlet></router-outlet>
+</div>

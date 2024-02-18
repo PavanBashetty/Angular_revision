@@ -1,0 +1,84 @@
+{
+  "favoriteMovies": [
+    {
+      "id": "5118",
+      "movieName": "The dark knight",
+      "movieRating": 9
+    },
+    {
+      "id": "81be",
+      "movieName": "Wall-E",
+      "movieRating": 9
+    },
+    {
+      "id": "c0d5",
+      "movieName": "Croods",
+      "movieRating": 8
+    }
+  ],
+  "studentsData": [
+    {
+      "id": "65af",
+      "firstName": "Pavan",
+      "lastName": "Bashetty",
+      "age": 31,
+      "address": {
+        "street": "BS",
+        "city": "HD",
+        "zipcode": 69,
+        "country": "DE"
+      },
+      "aliases": [
+        "PRB",
+        "Pav"
+      ]
+    },
+    {
+      "id": "0f72",
+      "firstName": "Goku",
+      "lastName": "Saiyan",
+      "age": 44,
+      "address": {
+        "street": "Pi",
+        "city": "Tokyo",
+        "zipcode": 123,
+        "country": "Japan"
+      },
+      "aliases": [
+        "Dumbass",
+        "Kakorato"
+      ]
+    },
+    {
+      "id": "d0a7",
+      "firstName": "Sheldon",
+      "lastName": "Cooper",
+      "age": 39,
+      "address": {
+        "street": "Straße",
+        "city": "Pasadena",
+        "zipcode": 123,
+        "country": "USA"
+      },
+      "aliases": [
+        "Dr",
+        "Crazy"
+      ]
+    },
+    {
+      "id": "b74c",
+      "firstName": "Chandler",
+      "lastName": "Bing",
+      "age": 50,
+      "address": {
+        "street": "A",
+        "city": "NY",
+        "zipcode": 222,
+        "country": "USA"
+      },
+      "aliases": [
+        "actor"
+      ]
+    }
+  ]
+}
