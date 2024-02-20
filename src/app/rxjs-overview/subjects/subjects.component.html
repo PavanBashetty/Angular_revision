@@ -1,21 +1,34 @@
 <div class="grid">
     <mat-card class="row">
-        j
+        <p>An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers. While plain Observables are unicast, Subjects are multicast</p>
+        <small><i>(Unicast: Means each subscribed observer owns an independent execution of the observable. Multicast: Means one observable execution is shared among mulitple subscribers)</i></small>
+        <div class="grid">
+            <div class="row">
+                <p>Plain observable that emits a random value</p>
+                <li>subscriber one: {{subscriberOne}}</li>
+                <li>subscriber two: {{subscriberTwo}}</li>
+            </div>
+            <div class="row">
+                <p>Subject observable that emits a random value</p>
+                <li>subscriber three: <span style="color: green;">{{subscriberThree}}</span></li>
+                <li>subscriber four: <span style="color: green;">{{subscriberFour}}</span></li>
+            </div>
+        </div>
     </mat-card>
     <mat-card class="row">
         <div>
             <h4>Below statement is coming via a State management --- <b>Service</b></h4>
-            <p></p>
+            <p><i>{{varSharedDataS}}</i></p><button type="button" mat-raised-button color="primary" (click)="updateDataS()">Change for service</button>
         </div>
         ---------------------------------------------------------------
         <div>
             <h4>Below statement is coming via a State management --- <b>RxJS Subject</b></h4>
-            <p></p>
+            <p><i>{{varSharedDataO}}</i></p><button type="button" mat-raised-button color="primary" (click)="updateDataO()">Change for observable</button>
         </div>
         ---------------------------------------------------------------
         <div>
             <h4>Below statement is coming via a State management --- <b>NgRx store</b></h4>
-            <p></p>
+            <p><i>{{varSharedDataN}}</i></p><button type="button" mat-raised-button color="primary" (click)="updateDataN()">Change for NgRx</button>
         </div>
     </mat-card>
 </div>

@@ -23,6 +23,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 import { FooterComponent } from './footer/footer.component';
 import { ChildOneComponent } from './basics/child-one/child-one.component';
@@ -54,6 +55,10 @@ import { ObservablePromisesComponent } from './rxjs-overview/observable-promises
 import { AsyncPipeComponent } from './rxjs-overview/async-pipe/async-pipe.component';
 import { OperatorsComponent } from './rxjs-overview/operators/operators.component';
 import { SubjectsComponent } from './rxjs-overview/subjects/subjects.component';
+import { CounterComponent } from './ngrx-overview/counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './_store/_counter/counter.reducer';
+import { statementReducer } from './_store/_simpleStatement/statement.reducer';
 
 @NgModule({
   declarations: [
@@ -92,7 +97,8 @@ import { SubjectsComponent } from './rxjs-overview/subjects/subjects.component';
     ObservablePromisesComponent,
     AsyncPipeComponent,
     OperatorsComponent,
-    SubjectsComponent
+    SubjectsComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +115,12 @@ import { SubjectsComponent } from './rxjs-overview/subjects/subjects.component';
     MatCardModule,
     HttpClientModule,
     MatIconModule,
-    ReactiveFormsModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      count:counterReducer,
+      statement:statementReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

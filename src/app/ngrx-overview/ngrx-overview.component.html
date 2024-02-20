@@ -1,1 +1,16 @@
-<p>ngrx-overview works!</p>
+<div class="grid">
+    <mat-card class="row">
+        <p></p>
+        <div>
+            <h4>Below statement is coming via a State management --- <b>NgRx store</b></h4>
+            <p>{{varSharedDataN}}</p><button type="button" mat-raised-button color="primary" (click)="updateDataN()">change for NgRx</button>
+        </div>
+    </mat-card>
+    <mat-card class="row">
+        <nav style="text-align: center;">
+            <a routerLink="/ngrx/counter">Counter</a>&nbsp;
+            <a href="/ngrx">Example 2</a>
+        </nav> <br>
+        <router-outlet></router-outlet>
+    </mat-card>
+</div>

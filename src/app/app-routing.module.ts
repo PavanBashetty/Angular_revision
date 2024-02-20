@@ -18,6 +18,7 @@ import { ObservablePromisesComponent } from './rxjs-overview/observable-promises
 import { AsyncPipeComponent } from './rxjs-overview/async-pipe/async-pipe.component';
 import { OperatorsComponent } from './rxjs-overview/operators/operators.component';
 import { SubjectsComponent } from './rxjs-overview/subjects/subjects.component';
+import { CounterComponent } from './ngrx-overview/counter/counter.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/basics', pathMatch:'full'},
@@ -52,7 +53,12 @@ const routes: Routes = [
       {path:'subjects', component:SubjectsComponent}
     ]
   },
-  {path:'ngrx', component:NgrxOverviewComponent},
+  {
+    path:'ngrx', component:NgrxOverviewComponent,
+    children:[
+      {path:'counter', component:CounterComponent}
+    ]
+  },
   {path:'extras', component:ExtrasComponent},
   {path:'**', component:PageNotFoundComponent}
 ];

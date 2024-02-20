@@ -40,11 +40,27 @@
         </div>
     </mat-card>
 </div>
-<div class="grid" title="Pipes, Custom pipes">
-    <mat-card class="row">
+<div class="grid">
+    <mat-card class="row" title="Pipes, Custom pipes">
         <nav>
             <a routerLink="/basics/pipes" routerLinkActive="active">Pipes</a><br>            
         </nav>
         <router-outlet></router-outlet>
+    </mat-card>
+    <mat-card class="row" title="state management">
+        <div>
+            <h4>Below statement is coming via a State management --- <b>Service</b></h4>
+            <p><i>{{varSharedDataS}}</i></p><button type="button" mat-raised-button color="primary" (click)="updateDataS()">Change for service</button>
+        </div>
+        ---------------------------------------------------------------
+        <div>
+            <h4>Below statement is coming via a State management --- <b>Observable</b></h4>
+            <p><i>{{varSharedDataO}}</i></p><button type="button" mat-raised-button color="primary" (click)="updateDataO()">Change for observable</button>
+        </div>
+        ---------------------------------------------------------------
+        <div>
+            <h4>Below statement is coming via a State management --- <b>NgRx store</b></h4>
+            <p><i>{{varSharedDataN}}</i></p><button type="button" mat-raised-button color="primary" (click)="updateDataN()">change for NgRx</button>
+        </div>
     </mat-card>
 </div>
