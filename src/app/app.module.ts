@@ -59,6 +59,7 @@ import { CounterComponent } from './ngrx-overview/counter/counter.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './_store/_counter/counter.reducer';
 import { statementReducer } from './_store/_simpleStatement/statement.reducer';
+import { NoAccessComponent } from './no-access/no-access.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { statementReducer } from './_store/_simpleStatement/statement.reducer';
     AsyncPipeComponent,
     OperatorsComponent,
     SubjectsComponent,
-    CounterComponent
+    CounterComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,

@@ -1,29 +1,6 @@
 <br>
 <p>Observables and Promises are the way with which we can perform async operations in Angular. Promise is native to JS. Observable is part of RxJS library.</p>
 <div class="grid">
-    <mat-card class="row" title="Observables">
-        <b>Observables example</b>
-        <table>
-            <thead>
-                <tr>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Age</th>
-                    <th>City</th>
-                </tr>
-            </thead>
-            <tbody>
-                <ng-container *ngFor="let student of studentListObservable; let i=index">
-                    <tr>
-                        <td>{{student.firstName}}</td>
-                        <td>{{student.lastName}}</td>
-                        <td>{{student.age}}</td>
-                        <td>{{student.address.country}}</td>
-                    </tr>
-                </ng-container>
-            </tbody>
-        </table>
-    </mat-card>
     <mat-card class="row" title="Promises">
         <b>Promise example</b>
         <table>
@@ -47,6 +24,29 @@
             </tbody>
         </table>
     </mat-card>
+    <mat-card class="row" title="Observables">
+        <b>Observables example</b>
+        <table>
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let student of studentListObservable; let i=index">
+                    <tr>
+                        <td>{{student.firstName}}</td>
+                        <td>{{student.lastName}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.address.country}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </mat-card>    
 </div>
 <div class="grid">
     <mat-card class="row">

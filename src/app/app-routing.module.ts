@@ -19,13 +19,16 @@ import { AsyncPipeComponent } from './rxjs-overview/async-pipe/async-pipe.compon
 import { OperatorsComponent } from './rxjs-overview/operators/operators.component';
 import { SubjectsComponent } from './rxjs-overview/subjects/subjects.component';
 import { CounterComponent } from './ngrx-overview/counter/counter.component';
+import { NoAccessComponent } from './no-access/no-access.component';
+import { authGuard } from './_auth/auth.guard';
 
 const routes: Routes = [
   {path:'', redirectTo:'/basics', pathMatch:'full'},
   {
     path:'basics', component:BasicsComponent,
     children:[
-      {path:'pipes', component:PipesComponent}
+      {path:'pipes', component:PipesComponent, canActivate:[authGuard]},
+      // {path:'no-access', component:NoAccessComponent}
     ]
   },
   {path:'contentProjection', component:ContentProjectionComponent},
@@ -60,6 +63,7 @@ const routes: Routes = [
     ]
   },
   {path:'extras', component:ExtrasComponent},
+  {path:'basics/pipes/no-access', component:NoAccessComponent},
   {path:'**', component:PageNotFoundComponent}
 ];
 

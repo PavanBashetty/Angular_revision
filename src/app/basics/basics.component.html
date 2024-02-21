@@ -35,7 +35,8 @@
         </div>
         <div class="grid">
             <div class="row">
-                <button mat-raised-button color="accent">Autharize Pipes</button>
+                <p class="success-p" [hidden]="!currentPipeAuthState">Pipe route is now accessible</p>
+                <button mat-raised-button color="accent" (click)="authorizePipe()">Authorize Pipes</button>
             </div>
         </div>
     </mat-card>

@@ -3,6 +3,7 @@ import { dataShareService } from '../_services/dataShare-ser.service';
 import { dataShareObservables } from '../_services/dataShare-Obv.service';
 import { Store } from '@ngrx/store';
 import { updateData } from '../_store/_simpleStatement/statement.actions';
+import { CommonService } from '../_services/common.service';
 
 @Component({
   selector: 'app-basics',
@@ -22,7 +23,9 @@ export class BasicsComponent {
   public varSharedDataO!:string;
   public varSharedDataN!:string;
 
-  constructor(private dataShareS:dataShareService, private dataShareO:dataShareObservables, private store:Store<{statement:string}>){}
+  public currentPipeAuthState!:boolean;
+
+  constructor(private dataShareS:dataShareService, private dataShareO:dataShareObservables, private store:Store<{statement:string}>, private commonServices:CommonService){}
   ngOnInit(){
     this.varSharedDataS = this.dataShareS.getSharedDataS();
     this.dataShareO.data$.subscribe({
@@ -32,6 +35,10 @@ export class BasicsComponent {
     //ngrx
     this.store.select('statement').subscribe({
       next:(data)=>{this.varSharedDataN = data}
+    })
+
+    this.commonServices.pipeAuth$.subscribe({
+      next:(data)=>this.currentPipeAuthState = data
     })
   }
 
@@ -47,5 +54,10 @@ export class BasicsComponent {
 
   updateDataN(){
     this.store.dispatch(updateData({newData:'Shared data via NgRx updated in basics component'}))
+  }
+
+  authorizePipe(){
+    this.commonServices.updatePipeAuth(true);
+    setTimeout(()=>{this.currentPipeAuthState = false},3000)
   }
 }
