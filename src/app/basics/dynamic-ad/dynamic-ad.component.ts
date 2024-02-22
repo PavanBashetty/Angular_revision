@@ -12,7 +12,7 @@ export class DynamicAdComponent {
 
   public comp = MobilesComponent;
   public adList!: any[];
-  public currentAdIndex:number = 0;
+  public currentAdIndex:number = 1;
   public adIntervalSubscription!:Subscription;
 
   constructor(private adService:AdService){}
@@ -22,16 +22,17 @@ export class DynamicAdComponent {
   }
 
   //With the getter method (get currentAd()), you access the value directly like a property. With the regular method (currentAd()), you access the value by calling the method
-  get currentAd(){
-    return this.adList[this.currentAdIndex];
+  get currentAd(){    
+    return this.adList[this.currentAdIndex-1];
   }
 
   displayNextAd(){
-    this.currentAdIndex == this.adList.length ? this.currentAdIndex = 0 : this.currentAdIndex++
+    this.currentAdIndex == this.adList.length ? this.currentAdIndex = 1 : this.currentAdIndex++
   }
 
   startAdInterval(){
-    this.adIntervalSubscription = interval(3000).subscribe(()=>{this.displayNextAd()})
+    this.adIntervalSubscription = interval(3000).subscribe(()=>{      
+      this.displayNextAd()})
   }
 
   stopAdInterval(){

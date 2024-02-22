@@ -12,15 +12,16 @@ class PermissionService{
   constructor(private commonServices:CommonService, private router:Router){}
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean{
     
-    this.commonServices.pipeAuth$.subscribe({
-      next: (data)=>this.currentPipeState = data,
-      error:()=>this.currentPipeState = false
-    })
+    localStorage.getItem('pipeAuth') == 'false'? this.currentPipeState = false : this.currentPipeState = true;
+    
+    // this.commonServices.pipeAuth$.subscribe({
+    //   next: (data)=>this.currentPipeState = data,
+    //   error:()=>this.currentPipeState = false
+    // })
     
     if(!this.currentPipeState){
       console.log('You are not authorized to access the pipe component');
-      this.router.navigate(['/basics/pipes/no-access']);
-      //When page refreshed, we don't get result as we expect. It can be solved if pipeAuth boolean value is stored in localStorge instead in an observable
+      this.router.navigate(['/basics/no-access']);      
     }
     return this.currentPipeState;
   }

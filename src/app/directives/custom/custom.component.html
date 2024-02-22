@@ -6,6 +6,21 @@
         <p mouseHover>Move mouse cursor over this text to change the font size</p>
     </mat-card>
     <mat-card class="row">
-        <h2>Custom Structural Directive</h2>
+        <div class="grid">
+            <div class="row">
+                <h2>Custom Structural Directive</h2>
+            </div>
+            <div style="margin-right: 100px;">
+                <br>
+                <button type="button" mat-raised-button color="primary" (click)="changeConditionValues()">Toggle</button>
+            </div>
+        </div>
+        <p><b>This element has only custom if condition on it.</b></p>
+        <div *myOwnIf="onlyForIf">Div when the condition is true</div>
+        <div *myOwnIf="!onlyForIf">Div when the condition is false</div>
+        ----------------------------------------------------------------
+        <p><b>This element has custom if-else conditions.</b></p>
+        <div *myOwnCompleteIf="onlyForIf; else showElseBlock">Div when the condition is true</div>
+        <ng-template #showElseBlock>code from else (ng-template) when condition if false</ng-template>
     </mat-card>
 </div>

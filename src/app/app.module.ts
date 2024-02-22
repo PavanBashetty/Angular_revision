@@ -49,6 +49,8 @@ import { CustomComponent } from './directives/custom/custom.component';
 import { HighlightBackground } from './_customdirectives/app-highlight.directive';
 import { ClickBackgroundHighlight } from './_customdirectives/app-clickbackground.directive';
 import { MouseHover } from './_customdirectives/app-mousehover.directive';
+import { showElementViaIf } from './_customdirectives/app-myOwnIf.directive';
+import { showElementViaIfElse } from './_customdirectives/app-customIfElse.directive';
 import { TemplateFormComponent } from './forms-overview/template-form/template-form.component';
 import { ReactiveFormComponent } from './forms-overview/reactive-form/reactive-form.component';
 import { ObservablePromisesComponent } from './rxjs-overview/observable-promises/observable-promises.component';
@@ -93,6 +95,8 @@ import { NoAccessComponent } from './no-access/no-access.component';
     HighlightBackground,
     ClickBackgroundHighlight,
     MouseHover,
+    showElementViaIf,
+    showElementViaIfElse,
     TemplateFormComponent,
     ReactiveFormComponent,
     ObservablePromisesComponent,

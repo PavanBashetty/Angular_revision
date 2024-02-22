@@ -36,7 +36,7 @@
         <div class="grid">
             <div class="row">
                 <p class="success-p" [hidden]="!currentPipeAuthState">Pipe route is now accessible</p>
-                <button mat-raised-button color="accent" (click)="authorizePipe()">Authorize Pipes</button>
+                <button mat-raised-button color="accent" (click)="authorizePipe()"  [disabled]="disabledPipeAuthBtn">Authorize Pipes</button>
             </div>
         </div>
     </mat-card>

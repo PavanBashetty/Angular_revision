@@ -5,7 +5,7 @@ import { BehaviorSubject } from "rxjs";
 @Injectable({providedIn:'root'})
 export class CommonService{
 
-    //TO SAVE PIPES ACCESS VALUE
+    // currentPipeAuthState:boolean = localStorage.getItem('pipeAuth') == 'false' ? false:true;    
     private pipeAuthSubject = new BehaviorSubject<boolean>(false);
     pipeAuth$ = this.pipeAuthSubject.asObservable();
     updatePipeAuth(access:boolean){

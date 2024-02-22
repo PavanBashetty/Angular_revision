@@ -4,6 +4,7 @@ import { dataShareObservables } from '../_services/dataShare-Obv.service';
 import { Store } from '@ngrx/store';
 import { updateData } from '../_store/_simpleStatement/statement.actions';
 import { CommonService } from '../_services/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basics',
@@ -23,9 +24,10 @@ export class BasicsComponent {
   public varSharedDataO!:string;
   public varSharedDataN!:string;
 
-  public currentPipeAuthState!:boolean;
+  public currentPipeAuthState:boolean = false;
+  public disabledPipeAuthBtn:boolean = false;
 
-  constructor(private dataShareS:dataShareService, private dataShareO:dataShareObservables, private store:Store<{statement:string}>, private commonServices:CommonService){}
+  constructor(private dataShareS:dataShareService, private dataShareO:dataShareObservables, private store:Store<{statement:string}>, private commonServices:CommonService, private router:Router){}
   ngOnInit(){
     this.varSharedDataS = this.dataShareS.getSharedDataS();
     this.dataShareO.data$.subscribe({
@@ -37,9 +39,9 @@ export class BasicsComponent {
       next:(data)=>{this.varSharedDataN = data}
     })
 
-    this.commonServices.pipeAuth$.subscribe({
-      next:(data)=>this.currentPipeAuthState = data
-    })
+    // this.commonServices.pipeAuth$.subscribe({
+    //   next:(data)=>this.currentPipeAuthState = data
+    // })
   }
 
 
@@ -57,7 +59,11 @@ export class BasicsComponent {
   }
 
   authorizePipe(){
-    this.commonServices.updatePipeAuth(true);
+    // this.commonServices.updatePipeAuth(true);
+    this.currentPipeAuthState = true;
+    this.disabledPipeAuthBtn = true;
+    localStorage.setItem('pipeAuth','true');
     setTimeout(()=>{this.currentPipeAuthState = false},3000)
+    this.router.navigate(['/basics'])
   }
 }

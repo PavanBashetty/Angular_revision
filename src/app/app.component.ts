@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular_revision';
+
+  constructor(){}
+
+  ngOnInit(){
+    if(!localStorage.getItem('pipeAuth')){
+      localStorage.setItem('pipeAuth', 'false')
+    }
+  }
 }

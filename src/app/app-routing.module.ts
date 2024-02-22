@@ -28,7 +28,7 @@ const routes: Routes = [
     path:'basics', component:BasicsComponent,
     children:[
       {path:'pipes', component:PipesComponent, canActivate:[authGuard]},
-      // {path:'no-access', component:NoAccessComponent}
+      {path:'no-access', component:NoAccessComponent}
     ]
   },
   {path:'contentProjection', component:ContentProjectionComponent},
@@ -63,7 +63,7 @@ const routes: Routes = [
     ]
   },
   {path:'extras', component:ExtrasComponent},
-  {path:'basics/pipes/no-access', component:NoAccessComponent},
+  // {path:'basics/pipes/no-access', component:NoAccessComponent},
   {path:'**', component:PageNotFoundComponent}
 ];
 
