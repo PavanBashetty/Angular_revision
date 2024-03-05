@@ -16,22 +16,29 @@ export class ApiService{
 
     constructor(private http:HttpClient){}
 
+    //FOR DYNAMIC AD
     getWidgetProducts():Observable<any>{
         return this.http.get<any>(`${this.widgetProductURL}`)
     }
 
+    //FOR FAVORIATE MOVIES
     addNewMovie(movieData:favMovie):Observable<any>{
         return this.http.post<any>(`${this.apiURL}/favoriteMovies`, movieData)
     }
-
     getFavMovieList():Observable<favMovie[]>{
         return this.http.get<favMovie[]>(`${this.apiURL}/favoriteMovies`)
     }
-
     deleteFavMovie(id:string):Observable<any>{
         return this.http.delete<any>(`${this.apiURL}/favoriteMovies/${id}`)
     }
+    editMovieRating(id:string, newRating:number):Observable<any>{
+        const postData = {"movieRating":newRating};
+        return this.http.patch<any>(`${this.apiURL}/favoriteMovies/${id}`,postData);
+        //put updates the whole object, patch updates a particular field
+    }
 
+
+    //FOR STUDENT DATA
     addNewStudent(newStudentData:newStudent):Observable<any>{
         return this.http.post<any>(`${this.apiURL}/studentsData`, newStudentData)
     }

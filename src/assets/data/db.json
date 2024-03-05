@@ -1,19 +1,19 @@
 {
   "favoriteMovies": [
     {
-      "id": "5118",
-      "movieName": "The dark knight",
-      "movieRating": 9
-    },
-    {
-      "id": "81be",
-      "movieName": "Wall-E",
-      "movieRating": 9
-    },
-    {
       "id": "c0d5",
       "movieName": "Croods",
+      "movieRating": 7.6
+    },
+    {
+      "id": "411a",
+      "movieName": "Up",
       "movieRating": 8
+    },
+    {
+      "id": "f77c",
+      "movieName": "Hangover",
+      "movieRating": 5.3
     }
   ],
   "studentsData": [

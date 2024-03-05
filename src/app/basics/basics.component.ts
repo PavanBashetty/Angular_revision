@@ -25,7 +25,8 @@ export class BasicsComponent {
   public varSharedDataN!:string;
 
   public currentPipeAuthState:boolean = false;
-  public disabledPipeAuthBtn:boolean = false;
+  public removePipeAuthAccess:boolean = false;
+  public toggleAuthBtns:boolean = false;
 
   constructor(private dataShareS:dataShareService, private dataShareO:dataShareObservables, private store:Store<{statement:string}>, private commonServices:CommonService, private router:Router){}
   ngOnInit(){
@@ -39,9 +40,7 @@ export class BasicsComponent {
       next:(data)=>{this.varSharedDataN = data}
     })
 
-    // this.commonServices.pipeAuth$.subscribe({
-    //   next:(data)=>this.currentPipeAuthState = data
-    // })
+    localStorage.getItem('pipeAuth') == 'true'? this.toggleAuthBtns = true : this.toggleAuthBtns = false;
   }
 
 
@@ -61,9 +60,17 @@ export class BasicsComponent {
   authorizePipe(){
     // this.commonServices.updatePipeAuth(true);
     this.currentPipeAuthState = true;
-    this.disabledPipeAuthBtn = true;
+    this.toggleAuthBtns = true;
     localStorage.setItem('pipeAuth','true');
-    setTimeout(()=>{this.currentPipeAuthState = false},3000)
+    setTimeout(()=>{this.currentPipeAuthState = false},2000)
+    this.router.navigate(['/basics'])
+  }
+
+  removeAuthAccess(){
+    this.removePipeAuthAccess = true;
+    this.toggleAuthBtns = false;
+    localStorage.clear();
+    setTimeout(()=>{this.removePipeAuthAccess = false},2000)
     this.router.navigate(['/basics'])
   }
 }

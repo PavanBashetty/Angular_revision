@@ -19,9 +19,8 @@
                                 <td>{{favMovie.movieName}}</td>
                                 <td>{{favMovie.movieRating}}</td>
                                 <td>
-                                    <button type="button" mat-icon-button color="primary" (click)="deleteFavMovie(favMovie.id)">
-                                        <mat-icon>delete</mat-icon>
-                                    </button>
+                                    <button type="button" mat-icon-button color="primary" (click)="openEditRatingDialog(favMovie)" title="edit"><mat-icon>edit</mat-icon></button>
+                                    <button type="button" mat-icon-button color="primary" (click)="deleteFavMovie(favMovie.id)" title="delete"><mat-icon>delete</mat-icon></button>                                    
                                 </td>
                             </tr>
                         </ng-container>
@@ -64,3 +63,18 @@
         <router-outlet></router-outlet>
     </mat-card>
 </div>
+
+<ng-template #editRatingModal>
+    <div style="text-align: center;">
+        <br>
+        <h3>Add a new rating to movie: <b>{{selectedMovieName}}</b></h3>
+        <mat-form-field>
+            <mat-label>New rating:</mat-label>
+            <input type="number"  matInput [(ngModel)]="currentRating"/>
+        </mat-form-field>
+        <div>
+            <button type="button" mat-raised-button color="primary" (click)="submitNewRating()">Submit</button>&nbsp;
+            <button type="button" mat-raised-button (click)="cancelRateEditing()">Cancel</button>
+        </div>        
+    </div>
+</ng-template>

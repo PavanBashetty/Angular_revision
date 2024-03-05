@@ -12,7 +12,7 @@ class PermissionService{
   constructor(private commonServices:CommonService, private router:Router){}
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean{
     
-    localStorage.getItem('pipeAuth') == 'false'? this.currentPipeState = false : this.currentPipeState = true;
+    localStorage.getItem('pipeAuth') == 'true'? this.currentPipeState = true : this.currentPipeState = false;
     
     // this.commonServices.pipeAuth$.subscribe({
     //   next: (data)=>this.currentPipeState = data,
