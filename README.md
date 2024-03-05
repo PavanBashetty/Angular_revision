@@ -10,7 +10,8 @@ Major concepts covered:
 - pipes, custom pipes.
 - content projection, customized content projection
 - Forms: Template driven form (using template reference variables), Reactive Forms
-- RxJS: Observables, (Observable vs Promises), Async pipe, Operators (map, filter, debounceTime, switchMap, distinctUntilChanged, toArray)
+- Routing: wildcard routes, route parameters, optional route parameters, child routes, Auth Guard
+- RxJS: Observables, (Observable vs Promises), Async pipe, Subject, BehaviourSubject, Operators (map, filter, debounceTime, switchMap, distinctUntilChanged, toArray)
 - NgRx
 - Angular Material
 - JSON Server
